@@ -1,7 +1,7 @@
 function CodeHub_Calendar_Schedule() 
 {
-  //get the user's default calendar
-  var calendar = CalendarApp.getCalendarById('4abvd0kv9fk8vvu925n5ijci50@group.calendar.google.com');
+  //get the user's default calendar, replace the 'ANYTHING.calendar.google.com' with the id of the Google Calendar in which you will create the events
+  var calendar = CalendarApp.getCalendarById('ANYTHING.calendar.google.com');
   
   //log in console which calendar was chosen
   console.log('Calendar chosen is: '+ calendar.getName());
