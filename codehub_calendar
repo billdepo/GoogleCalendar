@@ -1,0 +1,77 @@
+function CodeHub_Calendar_Schedule() 
+{
+  //get the user's Calendar id that they want to create events in and paste that id in getCalendarById()
+  var calendar = CalendarApp.getCalendarById('FILLINYOUROWNHERE@group.calendar.google.com');
+  
+  //log in console which calendar was chosen
+  console.log('Calendar chosen is: '+ calendar.getName());
+
+  //BI & Analytics Courses Schedule List
+  
+  var eventlist = [
+
+['BI & Analytics, Day 1  Welcome & Intro', 'November 20, 2020 15:15:00 UTC', 'November 20, 2020 16:00:00 UTC'],
+['BI & Analytics, Day 1 ', 'November 20, 2020 16:00:00 UTC', 'November 20, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 1 ', 'November 20, 2020 17:45:00 UTC', 'November 20, 2020 19:15:00 UTC'],
+['BI & Analytics, Day 2 ', 'November 21, 2020 8:15:00 UTC', 'November 21, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 2 ', 'November 21, 2020 10:15:00 UTC', 'November 21, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 2 ', 'November 21, 2020 12:30:00 UTC', 'November 21, 2020 14:00:00 UTC'],
+['BI & Analytics, Day 2 ', 'November 21, 2020 14:15:00 UTC', 'November 21, 2020 15:45:00 UTC'],
+['BI & Analytics, Day 3 ', 'November 22, 2020 8:15:00 UTC', 'November 22, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 3 ', 'November 22, 2020 10:15:00 UTC', 'November 22, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 4 ', 'November 23, 2020 16:00:00 UTC', 'November 23, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 4 ', 'November 23, 2020 17:45:00 UTC', 'November 23, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 5 ', 'November 24, 2020 16:00:00 UTC', 'November 24, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 5 ', 'November 24, 2020 17:45:00 UTC', 'November 24, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 7 ', 'November 26, 2020 16:00:00 UTC', 'November 26, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 7 ', 'November 26, 2020 17:45:00 UTC', 'November 26, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 9 ', 'November 28, 2020 8:15:00 UTC', 'November 28, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 9 ', 'November 28, 2020 10:15:00 UTC', 'November 28, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 9 ', 'November 28, 2020 12:30:00 UTC', 'November 28, 2020 14:00:00 UTC'],
+['BI & Analytics, Day 9 ', 'November 28, 2020 14:15:00 UTC', 'November 28, 2020 15:45:00 UTC'],
+['BI & Analytics, Day 11 ', 'November 30, 2020 16:00:00 UTC', 'November 30, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 11 ', 'November 30, 2020 17:45:00 UTC', 'November 30, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 13 ', 'December 2, 2020 16:00:00 UTC', 'December 2, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 13 ', 'December 2, 2020 17:45:00 UTC', 'December 2, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 14 ', 'December 3, 2020 16:00:00 UTC', 'December 3, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 14 ', 'December 3, 2020 17:45:00 UTC', 'December 3, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 16 ', 'December 5, 2020 8:15:00 UTC', 'December 5, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 16 ', 'December 5, 2020 10:15:00 UTC', 'December 5, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 16 ', 'December 5, 2020 12:30:00 UTC', 'December 5, 2020 14:00:00 UTC'],
+['BI & Analytics, Day 16 ', 'December 5, 2020 14:15:00 UTC', 'December 5, 2020 15:45:00 UTC'],
+['BI & Analytics, Day 18 ', 'December 7, 2020 16:00:00 UTC', 'December 7, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 18 ', 'December 7, 2020 17:45:00 UTC', 'December 7, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 19 ', 'December 8, 2020 16:00:00 UTC', 'December 8, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 19 ', 'December 8, 2020 17:45:00 UTC', 'December 8, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 21 ', 'December 10, 2020 16:00:00 UTC', 'December 10, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 21 ', 'December 10, 2020 17:45:00 UTC', 'December 10, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 23 ', 'December 12, 2020 8:15:00 UTC', 'December 12, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 23 ', 'December 12, 2020 10:15:00 UTC', 'December 12, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 23 ', 'December 12, 2020 12:30:00 UTC', 'December 12, 2020 14:00:00 UTC'],
+['BI & Analytics, Day 23 ', 'December 12, 2020 14:15:00 UTC', 'December 12, 2020 15:45:00 UTC'],
+['BI & Analytics, Day 25 ', 'December 14, 2020 16:00:00 UTC', 'December 14, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 25 ', 'December 14, 2020 17:45:00 UTC', 'December 14, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 26 ', 'December 15, 2020 16:00:00 UTC', 'December 15, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 26 ', 'December 15, 2020 17:45:00 UTC', 'December 15, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 29 ', 'December 18, 2020 16:00:00 UTC', 'December 18, 2020 17:30:00 UTC'],
+['BI & Analytics, Day 29 ', 'December 18, 2020 17:45:00 UTC', 'December 18, 2020 19:10:00 UTC'],
+['BI & Analytics, Day 30 ', 'December 19, 2020 8:15:00 UTC', 'December 19, 2020 10:00:00 UTC'],
+['BI & Analytics, Day 30 ', 'December 19, 2020 10:15:00 UTC', 'December 19, 2020 11:45:00 UTC'],
+['BI & Analytics, Day 30 ', 'December 19, 2020 12:30:00 UTC', 'December 19, 2020 14:00:00 UTC'],
+['BI & Analytics, Day 30 ', 'December 19, 2020 14:15:00 UTC', 'December 19, 2020 15:45:00 UTC'],
+['BI & Analytics, Day 32 Project Presentations - Approx. Timing', 'December 21, 2020 15:00:00 UTC', 'December 21, 2020 19:15:00 UTC'],
+    
+  ];
+  
+  //createEvent(title, startTime, endTime, options) 
+  console.log(eventlist.length);
+  
+  //for all the list items run a for loop to create appropriate events in the Calendar
+  for(var i=0; i<eventlist.length;i++)
+    {
+    var event = calendar.createEvent(eventlist[i][0],new Date(eventlist[i][1]),new Date(eventlist[i][2]));
+    console.log(i, " : ",eventlist[i][0]);
+    }
+  
+  
+}
